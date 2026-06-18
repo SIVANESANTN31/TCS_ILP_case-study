@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Login</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="script.js"></script>
+</head>
+
+<body class="login-page">
+    <div class="top-nav">
+        <button onclick="goToRegister()">Register</button>
+    </div>
+    <div class="container" id="loginPage">
+        <h2>Customer Login</h2>
+        <label>User ID</label>
+        <input type="text" id="userId">
+        <div class="error" id="userIdError"></div>
+        <label>Password</label>
+        <input type="password" id="password">
+        <div class="error" id="passwordError"></div>
+        <div class="buttons">
+            <button class="register" onclick="login()">Login</button>
+            <button class="reset" onclick="goToAdmin()">Admin</button>
+        </div>
+        
+    </div>
+
+    <div class="container" id="dashboard" style="display:none;">
+        <h2>Welcome to Dashboard</h2>
+        <p>✅ Login Successful</p>
+        <ul style="text-align:left;">
+            <li>View Profile</li>
+            <li>Edit Details</li>
+            <li>Change Password</li>
+            <li>Logout</li>
+        </ul>
+    </div>
+
+</body>
+
+</html>

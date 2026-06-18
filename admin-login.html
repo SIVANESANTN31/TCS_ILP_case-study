@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Admin Login</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js" defer></script>
+</head>
+
+<body class="login-page">
+
+<!-- Top Navigation -->
+<div class="top-nav">
+  <button onclick="goToRegister()">Register</button>
+</div>
+
+<div class="container" id="loginPage">
+  <h2>Admin Login</h2>
+
+  <label>User ID</label>
+  <input type="text" id="userId">
+  <div class="error" id="userIdError"></div>
+
+  <label>Password</label>
+  <input type="password" id="password">
+  <div class="error" id="passwordError"></div>
+
+  <div class="buttons">
+    <button class="register" onclick="adminLogin()">Login</button>
+  </div>
+</div>
+
+<!-- ✅ Dashboard -->
+<div class="container success-screen" id="dashboard">
+  <h2>Admin Dashboard</h2>
+  <p class="success-message">✅ Login Successful</p>
+
+  <ul>
+    <li>Manage Users</li>
+    <li>View Reports</li>
+    <li>Approve/Reject Requests</li>
+    <li>System Settings</li>
+    <li>Logout</li>
+  </ul>
+</div>
+
+</body>
+</html>

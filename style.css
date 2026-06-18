@@ -1,0 +1,241 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  overflow-x: hidden;
+}
+body.slide-to-right {
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+}
+body.slide-to-left {
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out;
+}
+body.register-page {
+  /* background: linear-gradient(135deg, #425394, #6c17a5); */
+  background: url('asset/background.jpg') no-repeat center center/cover; 
+  }
+body.login-page {
+  /* background: linear-gradient(135deg,#425394, #6c17a5); */
+  background: url('asset/background.jpg') no-repeat center center/cover;
+}
+body.home-page {
+background: linear-gradient(135deg,#425394, #6c17a5);
+}
+
+.container {
+  width: 400px;
+  margin: 0 auto;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+h2, h3, label {
+  color: #ffffff;
+}
+h2 {
+  text-align: center;
+}
+label {
+  display: block;
+  margin-top: 10px;
+}
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+}
+input, select {
+  height: 40px;
+}
+textarea {
+  height: 80px;
+  resize: none;
+}
+.mobile-group {
+  display: flex;
+  gap: 10px;
+}
+.mobile-group select {
+  width: 30%;
+}
+.mobile-group input {
+  width: 70%;
+}
+
+
+
+.buttons {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+.register {
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+  color: #000;
+}
+.reset {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+.register:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+.reset:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+
+.error {
+  color: #ffcccc;
+  font-size: 12px;
+}
+.success-screen {
+  display: none;
+  text-align: center;
+}
+.success-message {
+  color: #7CFC00;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+.top-nav {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+.top-nav button {
+  padding: 8px 15px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-radius: 6px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+.top-nav button:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+
+
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 20px;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.menu span {
+  margin-right: 20px;
+  color: white;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+}
+.menu span:hover {
+  color: #ffd700;
+}
+.menu span::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #ffd700;
+  left: 0;
+  bottom: -5px;
+  transition: 0.3s;
+}
+.menu span:hover::after {
+  width: 100%;
+}
+.welcome {
+  color: white;
+  font-weight: bold;
+  margin-left: auto;
+  padding-right: 40px;
+}
+#content {
+  margin-top: 1px;
+}
+
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+  padding-right: 40px;
+}
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+  .menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    height: 100vh;
+    width: 250px;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 60px 20px;
+    transition: 0.3s;
+  }
+  .menu span {
+    margin: 15px 0;
+    font-size: 18px;
+  }
+  .menu.active {
+    right: 0;
+  }
+  .welcome {
+    display: none;
+  }
+  .menu span::after {
+    bottom: -2px;
+  }
+  .hamburger {
+    display: block;
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,20 @@
+<div class="navbar">
+    <div class="menu" id="menu">
+        <div class="close-btn" onclick="toggleMenu()">✖</div>
+
+        <span onclick="goHome(); closeMenu()">Home</span>
+        <span onclick="navigate('reservation'); closeMenu()">Reservation</span>
+        <span onclick="navigate('billing'); closeMenu()">Billing</span>
+        <span onclick="navigate('history'); closeMenu()">History</span>
+        <span onclick="navigate('bookings'); closeMenu()">Bookings</span>
+        <span onclick="navigate('support'); closeMenu()">Contact Support</span>
+        <span onclick="logout(); closeMenu()">Logout</span>
+    </div>
+
+    <div class="welcome">
+        Welcome <span id="username"></span>
+    </div>
+
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
+</div>
+``
