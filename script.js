@@ -119,6 +119,11 @@ function resetForm() {
     document.querySelectorAll(".error").forEach(e => e.innerText = "");
 }
 
+function handleLogin(e) {
+  e.preventDefault();
+  login();
+}
+
 function login() {
     let valid = true;
 
@@ -154,7 +159,6 @@ function login() {
         }
     }
 }
-
 
 function adminLogin() {
     let valid = true;
@@ -194,76 +198,174 @@ function adminLogin() {
 
 
 function goHome() {
-  const content = document.getElementById("content");
-  if (!content) return;
+    const content = document.getElementById("content");
+    if (!content) return;
 
-  content.innerHTML = `
+    content.innerHTML = `
     <h2>Home Page</h2>
     <p>Welcome to the customer dashboard.</p>
   `;
 }
 
-
-
+// document.addEventListener("DOMContentLoaded", () => {
+//   fetch("navbar.html")
+//     .then(res => {
+//       console.log("Status:", res.status);
+//       return res.text();
+//     })
+//     .then(data => {
+//       console.log("Navbar loaded:", data);
+//       document.getElementById("navbar").innerHTML = data;
+//     })
+//     .catch(err => console.error("ERROR:", err));
+// });
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Loading navbar...");
+    const navbarHTML = `
+    <div class="navbar">
+        <div class="menu" id="menu">
+            <div class="close-btn" onclick="toggleMenu()">✖</div>
+<span onclick="navigate('reservation'); closeMenu()">Reservation</span>
+<span onclick="navigate('billing'); closeMenu()">Billing</span>
+<span onclick="navigate('history'); closeMenu()">History</span>
+<span onclick="navigate('bookings'); closeMenu()">Bookings</span>
+<span onclick="navigate('support'); closeMenu()">Support</span>
+<span onclick="logout(); closeMenu()">Logout</span>
+        </div>
 
-  fetch("navbar.html")
-    .then(res => {
-      console.log("Fetch response:", res);
-      return res.text();
-    })
-    .then(data => {
-      document.getElementById("navbar").innerHTML = data;
-    })
-    .catch(err => console.error("Navbar load error:", err));
+        <div class="welcome">
+            Welcome <span id="username"></span>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+    </div>
+  `;
+
+    document.getElementById("navbar").innerHTML = navbarHTML;
+
+    // Set username
+    const username = localStorage.getItem("username") || "User";
+    document.getElementById("username").innerText = username;
 });
-``
+document.addEventListener("click", function (event) {
+    const menu = document.getElementById("menu");
+    const hamburger = document.querySelector(".hamburger");
+
+    // If clicked outside menu and not hamburger
+    if (
+        !menu.contains(event.target) &&
+        !hamburger.contains(event.target)
+    ) {
+        menu.classList.remove("active");
+    }
+});
+
+
 function navigate(page) {
-  const container = document.getElementById("content");
+    const container = document.getElementById("content");
 
-  let content = "";
+    let content = "";
 
-  switch (page) {
+    switch (page) {
+        // case "reservation":
+    // fetch("reservation.html")
+    //     .then(res => res.text())
+    //     .then(data => {
+    //         document.getElementById("content").innerHTML = data;
+
+    //         document.getElementById("reservationForm")
+    //             .addEventListener("submit", handleReservation);
+    //     });
+    // break;
+    case "home":
+    window.location.href = "home-page.html";
+    break;
     case "reservation":
-      content = "<h2>Reservation</h2><p>Book your services here.</p>";
-      break;
-    case "billing":
-      content = "<h2>Billing</h2><p>View your bills here.</p>";
-      break;
-    case "history":
-      content = "<h2>History</h2><p>Past bookings.</p>";
-      break;
-    case "bookings":
-      content = "<h2>Bookings</h2><p>Your current bookings.</p>";
-      break;
-    case "support":
-      content = "<h2>Support</h2><p>Contact support team.</p>";
-      break;
-  }
+    window.location.href = "reservation.html";
+    break;
+//     case "billing":
+//     window.location.href = "billing.html";
+//     break;
 
-  container.innerHTML = content;
+// case "history":
+//     window.location.href = "history.html";
+//     break;
+
+// case "bookings":
+//     window.location.href = "bookings.html";
+//     break;
+
+// case "support":
+//     window.location.href = "support.html";
+//     break;
+        case "billing":
+            content = "<h2>Billing</h2><p>View your bills here.</p>";
+            break;
+        case "history":
+            content = "<h2>History</h2><p>Past bookings.</p>";
+            break;
+        case "bookings":
+            content = "<h2>Bookings</h2><p>Your current bookings.</p>";
+            break;
+        case "support":
+            content = "<h2>Support</h2><p>Contact support team.</p>";
+            break;
+    }
+
+    container.innerHTML = content;
 }
 
 function toggleMenu() {
-  document.getElementById("menu").classList.toggle("active");
+    document.getElementById("menu").classList.toggle("active");
 }
 
 function closeMenu() {
-  document.getElementById("menu").classList.remove("active");
+    document.getElementById("menu").classList.remove("active");
 }
 
 function logout() {
-  localStorage.removeItem("username");
-  window.location.href = "./login.html";
-}
-``
+    localStorage.removeItem("username");
 
-function logout() {
-  localStorage.removeItem("username");
-
-  document.body.classList.add("slide-to-right");
-  setTimeout(() => {
-    window.location.href = "./login.html";
-  }, 500);
+    document.body.classList.add("slide-to-right");
+    setTimeout(() => {
+        window.location.href = "./login.html";
+    }, 500);
 }
+
+
+function handleReservation(e) {
+    e.preventDefault();
+
+    const checkin = document.getElementById("checkin").value;
+    const checkout = document.getElementById("checkout").value;
+    const room = document.getElementById("room").value;
+    const name = document.getElementById("name").value.trim();
+    const contact = document.getElementById("contact").value.trim();
+
+    if (!checkin || !checkout || !room || !name || !contact) {
+        alert("Please fill all fields");
+        return;
+    }
+
+    if (isNaN(contact)) {
+        alert("Contact must be numeric");
+        return;
+    }
+    if (new Date(checkout) <= new Date(checkin)) {
+        alert("Check-out must be after Check-in date");
+        return;
+    }
+    const bookingId = "BOOK" + Math.floor(100000 + Math.random() * 900000);
+    document.getElementById("successMsg").innerHTML = `
+        ✅ Reservation Successful <br>
+        Booking ID: <b>${bookingId}</b>
+    `;
+    document.getElementById("reservationForm").reset();
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("reservationForm");
+
+    if (form) {
+        form.addEventListener("submit", handleReservation);
+    }
+});

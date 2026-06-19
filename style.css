@@ -4,24 +4,40 @@ body {
   height: 100vh;
   overflow-x: hidden;
 }
+
+body.home-page .container {
+  position: relative;
+  top: 80px;
+  transform: none;
+  /* margin: 120px auto 40px auto; */
+}
+
 body.slide-to-right {
   transform: translateX(100%);
   transition: transform 0.5s ease-in-out;
 }
+
 body.slide-to-left {
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
 }
+
 body.register-page {
   /* background: linear-gradient(135deg, #425394, #6c17a5); */
-  background: url('asset/background.jpg') no-repeat center center/cover; 
-  }
+  background: url('asset/background.jpg') no-repeat center center/cover;
+}
+
 body.login-page {
   /* background: linear-gradient(135deg,#425394, #6c17a5); */
   background: url('asset/background.jpg') no-repeat center center/cover;
 }
+
 body.home-page {
-background: linear-gradient(135deg,#425394, #6c17a5);
+  background: linear-gradient(135deg, #425394, #6c17a5);
+}
+
+#content {
+  margin-top: 80px;
 }
 
 .container {
@@ -38,17 +54,25 @@ background: linear-gradient(135deg,#425394, #6c17a5);
   top: 50%;
   transform: translateY(-50%);
 }
-h2, h3, label {
+
+h2,
+h3,
+label {
   color: #ffffff;
 }
+
 h2 {
   text-align: center;
 }
+
 label {
   display: block;
   margin-top: 10px;
 }
-input, select, textarea {
+
+input,
+select,
+textarea {
   width: 100%;
   padding: 10px;
   margin-top: 5px;
@@ -58,20 +82,26 @@ input, select, textarea {
   border-radius: 6px;
   font-size: 14px;
 }
-input, select {
+
+input,
+select {
   height: 40px;
 }
+
 textarea {
   height: 80px;
   resize: none;
 }
+
 .mobile-group {
   display: flex;
   gap: 10px;
 }
+
 .mobile-group select {
   width: 30%;
 }
+
 .mobile-group input {
   width: 70%;
 }
@@ -83,6 +113,7 @@ textarea {
   display: flex;
   justify-content: space-between;
 }
+
 button {
   margin-top: 15px;
   padding: 10px 15px;
@@ -92,17 +123,21 @@ button {
   transition: all 0.3s ease;
   font-weight: 500;
 }
+
 .register {
   background: linear-gradient(135deg, #00c9ff, #92fe9d);
   color: #000;
 }
+
 .reset {
   background: rgba(255, 255, 255, 0.25);
   color: #fff;
 }
+
 .register:hover {
   transform: translateY(-2px) scale(1.02);
 }
+
 .reset:hover {
   background: rgba(255, 255, 255, 0.4);
 }
@@ -112,10 +147,12 @@ button {
   color: #ffcccc;
   font-size: 12px;
 }
+
 .success-screen {
   display: none;
   text-align: center;
 }
+
 .success-message {
   color: #7CFC00;
   font-size: 18px;
@@ -129,6 +166,7 @@ button {
   top: 20px;
   right: 30px;
 }
+
 .top-nav button {
   padding: 8px 15px;
   background: rgba(255, 255, 255, 0.2);
@@ -137,6 +175,7 @@ button {
   backdrop-filter: blur(5px);
   transition: all 0.3s ease;
 }
+
 .top-nav button:hover {
   background: rgba(255, 255, 255, 0.4);
   transform: scale(1.05);
@@ -145,20 +184,19 @@ button {
 
 
 
-
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   padding: 15px 20px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   z-index: 1000;
   position: fixed;
   width: 100%;
   top: 0;
 }
+
 .menu span {
   margin-right: 20px;
   color: white;
@@ -166,9 +204,11 @@ button {
   font-weight: 500;
   position: relative;
 }
+
 .menu span:hover {
   color: #ffd700;
 }
+
 .menu span::after {
   content: "";
   position: absolute;
@@ -179,15 +219,18 @@ button {
   bottom: -5px;
   transition: 0.3s;
 }
+
 .menu span:hover::after {
   width: 100%;
 }
+
 .welcome {
   color: white;
   font-weight: bold;
   margin-left: auto;
   padding-right: 40px;
 }
+
 #content {
   margin-top: 1px;
 }
@@ -199,6 +242,7 @@ button {
   color: white;
   padding-right: 40px;
 }
+
 .close-btn {
   position: absolute;
   top: 15px;
@@ -206,7 +250,10 @@ button {
   font-size: 22px;
   color: white;
   cursor: pointer;
+  z-index: 2100;  
 }
+
+
 @media screen and (max-width: 768px) {
   .menu {
     position: fixed;
@@ -214,28 +261,34 @@ button {
     right: -250px;
     height: 100vh;
     width: 250px;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
     padding: 60px 20px;
     transition: 0.3s;
+    z-index: 2000;
   }
+
+  .menu.active {
+    right: 0;
+  }
+
   .menu span {
     margin: 15px 0;
     font-size: 18px;
   }
-  .menu.active {
-    right: 0;
-  }
+
   .welcome {
     display: none;
   }
+
   .menu span::after {
     bottom: -2px;
   }
+
   .hamburger {
     display: block;
     margin-left: auto;
   }
 }
+

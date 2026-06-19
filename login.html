@@ -8,22 +8,27 @@
     <script src="script.js"></script>
 </head>
 
-<body class="login-page">
+<body class="login-page center-page">
     <div class="top-nav">
         <button onclick="goToRegister()">Register</button>
     </div>
     <div class="container" id="loginPage">
         <h2>Customer Login</h2>
-        <label>User ID</label>
-        <input type="text" id="userId">
-        <div class="error" id="userIdError"></div>
-        <label>Password</label>
-        <input type="password" id="password">
-        <div class="error" id="passwordError"></div>
-        <div class="buttons">
-            <button class="register" onclick="login()">Login</button>
-            <button class="reset" onclick="goToAdmin()">Admin</button>
-        </div>
+        <form onsubmit="handleLogin(event)">
+    <label>User ID</label>
+    <input type="text" id="userId">
+    <div class="error" id="userIdError"></div>
+
+    <label>Password</label>
+    <input type="password" id="password">
+    <div class="error" id="passwordError"></div>
+
+    <div class="buttons">
+        <button type="submit" class="register">Login</button>
+        <button type="button" class="reset" onclick="goToAdmin()">Admin</button>
+    </div>
+</form>
+
         
     </div>
 
