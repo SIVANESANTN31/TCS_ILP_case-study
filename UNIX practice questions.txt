@@ -1,0 +1,252 @@
+=> Uniq Command ( uniq )
+
+Input:-
+
+apple
+apple
+banana
+banana
+banana
+orange
+apple
+apple
+grape
+grape
+
+
+Problem Statements:-
+
+1: Remove consecutive duplicates
+2: Count occurrences of each line
+3: Show only duplicate lines
+4: Show only unique (non-repeated) lines
+5: Get unique values (different values) without repetition
+
+=> Head and Tail Command  ( head and tail )
+
+Input:-
+
+Line1
+Line2
+Line3
+Line4
+Line5
+Line6
+Line7
+Line8
+Line9
+Line10
+Line11
+
+Problem Statements:-
+
+1: Show first 10 lines
+2: Show last 10 lines
+3: Display first 5 lines
+4: Display last 3 lines
+5: Skip first 5 lines and print rest
+=> tail -n +5 number.txt
+
+
+=> Word Count ( wc )
+
+Input:-
+
+Hello world
+Linux is powerful
+Unix is stable
+Practice makes perfect
+Shell scripting is fun
+
+Note:-
+1 character = 1 byte
+1 emoji != 1 byte
+1 Indian Language letter != 1 byte
+
+Example:-
+=> example for explaining -m and -c
+hello 😊
+
+Problem Statements:-
+
+1: Count number of lines
+2: Count number of words
+3: Count number of characters (-m)
+4: Count number of bytes (-c)
+5: Count multiple things at once
+
+=> sort
+
+Input:-
+
+101,John,85
+102,Alice,92
+103,Bob,75
+104,David,90
+105,Charlie,88
+
+Sort Commands:-
+
+sort file                # default sort
+sort -n file             # numeric sort
+sort -r file             # reverse
+sort -k n file           # sort column n
+sort -t , -k n file      # custom delimiter
+sort -m file1 file2      # merge sorted files
+
+Problem Statements:-
+
+1: Sort alphabetically (default)
+2: Sort by marks (numeric)
+3: Sort in descending order
+4: Sort by name
+5: Sort using custom delimiter
+
+=> grep
+
+Input:-
+
+apple
+banana
+Apple
+grape
+pineapple
+banana split
+APPLE
+orange
+
+Grep Commands:-
+
+grep word file        # search word
+grep -i word file     # ignore case
+grep -n word file     # show line number
+grep -c word file     # count matches
+grep -v word file     # NOT match
+grep -w word file     # exact word
+grep -E "a|b" file    # multiple patterns
+
+Problem Statements:-
+
+1: Search for a exact word (apple)
+2: Case-insensitive search (apple, APPLE)
+3: Display matching lines along with line numbers
+4: Count how many lines contain "banana"
+5: Show lines NOT matching the word (Display lines that do not contain "apple") 
+
+=> sed
+
+sed ==> stream editor
+
+Used to:
+1. Find & replace text
+2. Delete lines
+3. Print specific lines
+4. Modify file output
+
+Input:-
+
+hello world
+hello Linux hello
+unix is powerful hello
+hello unix
+this is a test
+
+sed Commands:-
+
+s/old/new/      # replace first
+s/old/new/g     # replace all
+3d              # delete line 3
+-n '2p'         # print line 2
+/word/d         # delete matching lines
+-n /word/p      # print matching lines
+-i              # edit file directly
+
+Sample Command : sed 's/hello/hi/' file.txt
+
+Extra Problem Statement:-
+1. Print only specific line which contains the word hello
+Ans : -n '/hello/p'
+2. Print only specific line which contains the word hello exactly
+Ans : -n '/\<hello\>/p'
+
+Problem Statements:-
+
+1: Replace a word (first occurrence in each line) => Replace hello with hi
+2: Replace all occurrences in each line => Replace all hello in each line with hi
+3: Delete a specific line => Delete only line 3
+4: Print only specific line => Print only line 2
+5: Replace only in a specific line=> Replace hello with hi only in line 2
+
+
+=> awk 
+
+=> Synatx:-
+
+awk 'BEGIN{
+    FS=","
+    OFS="$"
+}
+{
+    print
+}
+END{
+    
+}' data.txt
+
+=> For loop Syntax:-
+
+awk '{
+    for (i = 1; i <= NF; i++) {
+        print $i
+    }
+}' data.txt
+
+=> While loop Syntax
+
+awk 'BEGIN {
+    i = 1
+    while (i <= 5) {
+        print i
+        i++
+    }
+}'
+
+Input:-
+
+101,John,85
+102,Alice,92
+103,Bob,75
+104,David,90
+105,Charlie,88
+
+Problem Statements:-
+
+1: Print entire file
+2: Print specific column ( Print only names )
+3: Print multiple columns ( Print name and marks )
+4: Filter based on condition (Print students with marks > 85)
+5: Add text (Names, Marks) while printing
+
+Advanced Questions:-
+6: Count number of lines
+7: Sum of marks
+8: Average marks
+
+Hard Questions:-
+1: Calculate Grade using Function
+
+Note:- (use this function for your example)
+function getGrade(mark) {
+    if (mark >= 90)
+        return "A"
+    else if (mark >= 80)
+        return "B"
+    else if (mark >= 70)
+        return "C"
+    else
+        return "D"
+}
+
+
+
+
